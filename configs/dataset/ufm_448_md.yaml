@@ -1,0 +1,36 @@
+defaults:
+  - flow
+  - override staticthings/train: cropping
+
+resolution_train: ${dataset.resolution_options.448_many_non_square_ar}
+resolution_val: ${dataset.resolution_options.448_1_33_ar}
+
+
+defaults:
+  - flyingchairs: default
+  - flyingthings: default
+  - resolution_options: default
+  - quantity_options: default
+
+
+# train_dataset_str: "
+#    + ${dataset.quantity_options.train.megadepth_pairs} @ ${dataset.megadepth.train.dataset_str}[::${dataset.quantity_options.train.data_subsample_ratio}]
+#  "
+
+# Training Set, For example: BlendedMVS(split='train', resolution=(512, 384), transform=...)
+train_dataset: "
+   + ${dataset.quantity_options.train.megadepth_pairs} @ ${dataset.megadepth.train.dataset_str}[::${dataset.quantity_options.train.data_subsample_ratio}]
+ "
+# Validation Set
+test_dataset: ${dataset.quantity_options.val.test_dataset_str}
+# Number of workers for dataloader
+num_workers: 12
+
+
+shuffle: True
+drop_last: True
+pin_memory: True
+
+resolution_train: ${dataset.resolution_options.448_many_non_square_ar}
+resolution_val: ${dataset.resolution_options.448_1_33_ar}
+

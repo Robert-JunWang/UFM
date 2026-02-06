@@ -1,0 +1,3 @@
+defaults:
+  - train: megadepth_100k
+  - val: megadepth_full

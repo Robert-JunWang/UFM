@@ -1,0 +1,3 @@
+defaults:
+  - train: flow_100k
+  - val: flow_full

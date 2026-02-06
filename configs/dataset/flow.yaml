@@ -1,0 +1,21 @@
+defaults:
+  - flyingchairs: default
+  - flyingthings: default
+  - resolution_options: default
+  - quantity_options: ufm_flow
+
+
+# Training Set, For example: BlendedMVS(split='train', resolution=(512, 384), transform=...)
+train_dataset: ${dataset.quantity_options.train.train_dataset_str}
+# Validation Set
+test_dataset: ${dataset.quantity_options.val.test_dataset_str}
+# Number of workers for dataloader
+num_workers: 12
+# Default resolution for training
+resolution_train: ???
+# Default resolution for validation (Exemptions: MegaDepth)
+resolution_val: ???
+
+shuffle: True
+drop_last: True
+pin_memory: True
